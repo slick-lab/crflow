@@ -66,7 +66,7 @@ def initialize(
         url: row[2].to_s,
         context: row[3].to_s,
         submitter_name: row[4].to_s,
-        created_at: row[6].to_s
+        created_at: row[5].to_s
       }
     end 
  end 
