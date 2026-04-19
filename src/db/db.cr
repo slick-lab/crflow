@@ -13,7 +13,7 @@ def create_tables
      title TEXT NOT NULL,
      url TEXT NOT NULL,
      context TEXT NOT NULL,
-     sumbitter_name TEXT NOT NULL,
+     submitter_name TEXT NOT NULL,
      submitter_email TEXT NOT NULL,
      created_at TEXT NOT NULL
     )

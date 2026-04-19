@@ -5,7 +5,7 @@ class Posts
     id: int32?,
     title: String?,
     url: String?,
-    context: String?
+    context: String?,
     submitter_name: String?,
     submitter_email: String?,
     created_at: String?
@@ -30,7 +30,7 @@ def initialize(
   def self.all
     rows = db.query_all "SELECT id, title, url, context, submitter_name, submitter_email, created_at FROM posts ORDER BY id DESC LIMIT 50"
     rows.map do |row|
-      Post.new(
+      Posts.new(
         id: row[0].to_i,
         title: row[1].to_s,
         url: row[2].to_s,
@@ -45,7 +45,7 @@ def initialize(
   def self.find(id : int32)
     row = db.query_one? "SELECT id, title, context, submitter_name, submitter_email, created_at FROM posts WHERE id = ?", id
     if row
-     Post.new(
+     Posts.new(
         id: row[0].to_i,
         title: row[1].to_s,
         url: row[2].to_s,
