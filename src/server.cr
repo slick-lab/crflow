@@ -1,6 +1,6 @@
 require "kemal"
 require "./db/db"
-require "./post"
+require "./posts"
 
 
 create_tables
@@ -45,18 +45,18 @@ post "/posts" do |env|
   data = JSON.parse(env.request.body.not_nil!.gets_to_end)
   title = data["title"]?.try(&.as_s) || "" 
   url = data["url"]?.try(&.as_s) || "" 
-  context = data["url"]?.try(&.as_s) || ""
+  context = data["context"]?.try(&.as_s) || ""
   submitter_name = data["submitter_name"]?.try(&.as_s) || "john"
   submitter_email = data["submitter_email"]?.try(&.as_s) || "john"
    if title.empty? || url.empty? || context.empty?
-    env.reponse.status_code = 400
+    env.response.status_code = 400
     return { error: "Title, url and context are required" }.to_json
   post = Posts.new(title, url, context, submitter_name, submitter_email) 
   post.save
 
   {
     status: "created",
-    id: link.id
+    id: post.id
   }.to_json
  rescue e
   env.response.status_code = 400
