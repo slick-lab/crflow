@@ -7,7 +7,7 @@ RUN apk add --no-cache openssl-dev zlib-dev libevent-dev
 WORKDIR /app
 
 # Copy shard.yml first to leverage Docker layer caching
-COPY shard.yml shard.lock ./
+COPY shard.yml ./
 
 # Install dependencies (shards)
 # This installs Kemal and any other libraries in your shard.yml
