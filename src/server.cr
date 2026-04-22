@@ -53,11 +53,11 @@ post "/posts" do |env|
     return { error: "Title, url and context are required" }.to_json
   post = Posts.new(title, url, context, submitter_name, submitter_email) 
   post.save
-
   {
     status: "created",
     id: post.id
   }.to_json
+  end 
  rescue e
   env.response.status_code = 400
   { error: "Invalid Json: #{e.message}" }.to_json
