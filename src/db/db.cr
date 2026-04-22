@@ -1,4 +1,4 @@
-require 'sqlite3'
+require "sqlite3"
 
 DB_File = ENV.fetch("DB_PATH", "/data/posts.db")
 
