@@ -11,7 +11,7 @@ COPY shard.yml ./
 
 # Install dependencies (shards)
 # This installs Kemal and any other libraries in your shard.yml
-RUN shards install --production
+RUN shards install 
 
 # Copy the rest of the source code
 COPY . .
