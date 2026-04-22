@@ -3,7 +3,7 @@ require "sqlite3"
 DB_File = ENV.fetch("DB_PATH", "/data/posts.db")
 
 def db 
-  @@db ||= DB.open "sqlite3://#{DB_FILE}"
+  @db ||= DB.open "sqlite3://#{DB_FILE}"
 end 
 
 def create_tables
