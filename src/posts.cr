@@ -2,13 +2,13 @@ require "./db/db"
 
 class Posts
    JSON.mapping(
-    id: int32?,
-    title: String?,
-    url: String?,
-    context: String?,
-    submitter_name: String?,
-    submitter_email: String?,
-    created_at: String?
+    id : int32?,
+    title : String?,
+    url : String?,
+    context : String?,
+    submitter_name : String?,
+    submitter_email : String?,
+    created_at : String?
   )
 def initialize(
       @title : String,
