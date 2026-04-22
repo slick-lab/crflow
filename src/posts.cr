@@ -42,7 +42,7 @@ def initialize(
     end 
   end 
 
-  def self.find(id : int32)
+  def self.find(id : Int32)
     row = db.query_one? "SELECT id, title, context, submitter_name, submitter_email, created_at FROM posts WHERE id = ?", id
     if row
      Posts.new(
