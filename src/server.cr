@@ -64,6 +64,4 @@ post "/posts" do |env|
  end 
 end 
 
-port = ENV.fetch("PORT", "8080").to_i
-Kemal.config.port = port
 Kemal.run
